@@ -15,7 +15,7 @@ html, body {
 }
 
 #map-wrapper{
-    height: 200px;
+    height: 40%;
     background-color: #383838;
     z-index: 99999;
     width: 100%;
@@ -29,9 +29,9 @@ html, body {
 
 .listContainer{
     width: 100%;
-    height: -moz-calc(100% - 200px);
-    height: -webkit-calc(100% - 200px);
-    height: calc(100% - 200px);
+    height: -moz-calc(100% - 40%);
+    height: -webkit-calc(100% - 40%);
+    height: calc(100% - 40%);
     background: cornflowerblue;
     overflow-y: auto;
 
