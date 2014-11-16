@@ -1,20 +1,3 @@
-var app = angular.module('leapspot')
-    .factory('dataFactory', ['$http', function($http) {
-//
-//    var dataFactory = {};
-//
-//    dataFactory.getObservations = function () {
-//
-////        var url = "https://s3-us-west-2.amazonaws.com/worldcup14/Observations.json";
-////        // var url = 'data/Observations.json';
-////        return $http.get(url);
-//    };
-//
-//    return dataFactory;
-//
-//
-//}]);
-
 /**
  * Created by renerodriguez on 11/16/14.
  */
@@ -27,10 +10,15 @@ var app = angular.module('leapspot', ['angularParse']);
 
 app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQuery, $rootScope) {
 
-    var dataFactory = {};
+    $scope.data = {
+        items: [],
+        total: 0
+    }
+
+    var moments = $scope.data.items;
 
     // adds a new object to server
-    dataFactory.add = function() {
+    $scope.add = function() {
 
         var testObject = parsePersistence.new('trueHeading');
 
@@ -44,7 +32,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     }
 
     // retrieve a list of 1000 items from server and the total number of items
-    dataFactory.find = function() {
+    $scope.find = function() {
 
         var query = parseQuery.new('trueHeading');
 //      var query = parseQuery.new('observations');
@@ -60,6 +48,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
                 $rootScope.pointData = results;
 
+
                 // nested promise :)
                 return parseQuery.count(query);
             })
@@ -72,7 +61,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     };
 
     // removes an object from server
-    dataFactory.destroy = function(obj) {
+    $scope.destroy = function(obj) {
 
         parsePersistence.destroy(obj)
             .then(function(result) {
@@ -84,8 +73,11 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
     }
 
-    return dataFactory;
+    app.filter('reverse', function() {
+        return function(moments) {
+            return moments.slice().reverse();
+        };
+    });
 
 });
-
 

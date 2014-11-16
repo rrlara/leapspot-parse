@@ -22,6 +22,11 @@ html, body {
     position: relative;
 }
 
+#map{
+    height: 100%;
+    width: 100%;
+}
+
 .listContainer{
     width: 100%;
     height: -moz-calc(100% - 200px);
