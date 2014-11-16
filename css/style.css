@@ -34,7 +34,12 @@ html, body {
     height: calc(100% - 40%);
     background: cornflowerblue;
     overflow-y: auto;
+}
 
+.momentContainer{
+    height: -moz-calc(90%);
+    height: -webkit-calc(90%);
+    height: calc(90%);
 
 }
 

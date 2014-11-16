@@ -40,9 +40,9 @@
             <button ng-click="find()">Find all</button>
 
             <p ng-show="data.items.length > 0">Showing {{data.items.length}} of {{data.total}} </p>
-            <ul>
-              <li ng-repeat="item in data.items"><img src="{{item.attributes.imageFile._url}}" alt="Smiley face" width="400">(#{{item.attributes.comment}}) {{item.createdAt}} - <a href="#" ng-click="destroy(item)">destroy</a></li>
-            </ul>
+            <div>
+              <div class="momentContainer" ng-repeat="item in data.items"><img src="{{item.attributes.imageFile._url}}" alt="Smiley face" width="100%">(#{{item.attributes.comment}}) {{item.createdAt}} - <a href="#" ng-click="destroy(item)">destroy</a></div>
+            </div>
         </div>
 
   </div>
