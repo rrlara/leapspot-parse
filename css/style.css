@@ -1,0 +1,36 @@
+/* Put your css in here */
+
+html, body {
+    height: calc(100%);
+}
+
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    background: gray;
+    height: -moz-calc(100%);
+    height: -webkit-calc(100% );
+    height: calc(100%);
+}
+
+#map-wrapper{
+    height: 200px;
+    background-color: #383838;
+    z-index: 99999;
+    width: 100%;
+    position: relative;
+}
+
+.listContainer{
+    width: 100%;
+    height: -moz-calc(100% - 200px);
+    height: -webkit-calc(100% - 200px);
+    height: calc(100% - 200px);
+    background: cornflowerblue;
+    overflow-y: auto;
+
+
+}
+
+
