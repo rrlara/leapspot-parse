@@ -65,7 +65,7 @@ app.controller("ScrollMapCtrl", ['$scope', '$rootScope',
                     iconSize:     [30, 30], // size of the icon
                 });
 
-                setId('baker');
+                setId('cover');
 
                 function setId(newId) {
                     // If the ID hasn't actually changed, don't do anything
@@ -74,7 +74,7 @@ app.controller("ScrollMapCtrl", ['$scope', '$rootScope',
                     // marker to a different color and zooming to it.
                     placesLayer.eachLayer(function(layer) {
                         if (layer.feature.properties.id === newId) {
-                            map.setView(layer.getLatLng(), layer.feature.properties.zoom || 10);
+                            map.setView(layer.getLatLng(), layer.feature.properties.zoom || 11);
                             layer.setIcon(redIcon);
 
                         } else {
