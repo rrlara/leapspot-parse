@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+
+
+    <link rel="stylesheet" href="css/vendors/bootstrap.css">
+      <link rel="stylesheet" href="css/style.css" />
+
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+    <script data-require="angular.js@1.1.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js" data-semver="1.1.5"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.15.min.js"></script>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="js/vendors/bootstrap.js"></script>
+
+
+    <script src="node_modules/angularparse/angularparse.js"></script>
+    <script src="js/vendors/angular-leaflet-directive.min.js"></script>
+
+
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+
+    <script src="app.js"></script>
+    <script src="js/controllers/main.js"></script>
+      <script src="js/controllers/map.js"></script>
+
+
+
+
+
+  </head>
+
+  <body ng-app="leapspot">
+  <div class="container" ng-controller="MainCtrl">
+        <div id="map-wrapper" class="col-sm-7">
+              <div id="map" ng-controller="MapCtrl">
+                  <button ng-click="points()" style="position: absolute; left:0; bottom: 0; z-index: 100;">Points</button>
+              </div>
+        </div>
+        <div class="listContainer col-sm-5">
+            <!--<button ng-click="add()">Add item</button>-->
+            <!--<button ng-click="find()">Find all</button>-->
+
+            <!--<p ng-show="data.items.length > 0">Showing {{data.items.length}} of {{data.total}} </p>-->
+            <div>
+              <!--<div class="momentContainer" ng-repeat="item in data.items"><img src="{{item.attributes.imageFile._url}}" alt="Smiley face" height="100%">(#{{item.attributes.comment}}) {{item.createdAt}} - <a href="#" ng-click="destroy(item)">destroy</a></div>-->
+                <div class="momentContainer" ng-repeat="item in data.items"><img src="{{item.attributes.imageFile._url}}" alt="Smiley face"  width="100%"></div>
+
+            </div>
+        </div>
+
+  </div>
+    
+  </body>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/vendors/bootstrap.js"></script>
+
+</html>

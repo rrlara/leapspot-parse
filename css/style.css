@@ -10,7 +10,7 @@ html, body {
     padding-left: 0px;
     background: gray;
     height: -moz-calc(100%);
-    height: -webkit-calc(100% );
+    height: -webkit-calc(100%);
     height: calc(100%);
 }
 

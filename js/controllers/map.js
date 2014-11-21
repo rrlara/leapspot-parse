@@ -28,7 +28,7 @@ app.controller("MapCtrl", ['$scope', '$rootScope',
 
     initMap();
 
-        $scope.points =function() {
+        $scope.points = function() {
 
             var sightingReports = $rootScope.pointData;
 
@@ -102,8 +102,8 @@ app.controller("MapCtrl", ['$scope', '$rootScope',
 //                opacity: 1,
 //                fillOpacity: 1
                 icon: L.icon({
-                    iconUrl: 'img/leapspot@2x.png',
-                    iconSize: [24, 24],
+                    iconUrl: 'img/view@2x.png',
+                    iconSize: [30, 30],
                 })
 
             });

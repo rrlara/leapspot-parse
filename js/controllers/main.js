@@ -79,5 +79,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
         };
     });
 
+    $scope.find();
+
 });
 
