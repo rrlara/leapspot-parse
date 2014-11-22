@@ -71,10 +71,6 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
 
                 if (markerData[i].id === newId) {
-//                    map.setView(layer.getLatLng(), layer.feature.properties.zoom || 11);
-//                    layer.setIcon(redIcon);
-                    console.log("active + ");
-                    console.log(markerData[i].attributes.latitude);
 
                     var truHeading = markerData[i].attributes.trueHeading
 
@@ -126,14 +122,14 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
                 } else {
 //                    layer.setIcon(blackIcon);
-                    console.log("not active - ");
+
                 }
             }
 
-            console.log(newId);
+//            console.log(newId);
 
 
-            console.log(markerData);
+//            console.log(markerData);
 
 
             // highlight the current section
