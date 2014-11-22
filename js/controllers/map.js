@@ -38,7 +38,8 @@ app.controller("MapCtrl", ['$scope', '$rootScope',
 
 
         });
-        var geojsonMarkerOptions = {
+
+            var geojsonMarkerOptions = {
             radius: 8,
             fillColor: "#ff7800",
             color: "#000",
@@ -46,6 +47,8 @@ app.controller("MapCtrl", ['$scope', '$rootScope',
             opacity: 1,
             fillOpacity: 0.8
         };
+
+
         for(var i = 0, il = sightingReports.length; i < il; i++) {
 
             //attributes

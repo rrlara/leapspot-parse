@@ -48,6 +48,8 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
                 $rootScope.pointData = results;
 
+                $rootScope.points();
+
 
                 // nested promise :)
                 return parseQuery.count(query);
@@ -58,28 +60,9 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
                 alert(JSON.stringify(error));
             });
 
+
     };
 
-    // removes an object from server
-    $scope.destroy = function(obj) {
-
-        parsePersistence.destroy(obj)
-            .then(function(result) {
-                $scope.data.items.splice($scope.data.items.indexOf(obj),1);
-                $scope.data.total--;
-            }, function(error) {
-                alert(JSON.stringify(error));
-            });
-
-    }
-
-    app.filter('reverse', function() {
-        return function(moments) {
-            return moments.slice().reverse();
-        };
-    });
-
-    $scope.find();
 
 });
 
