@@ -20,7 +20,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     // adds a new object to server
     $scope.add = function() {
 
-        var testObject = parsePersistence.new('trueHeading');
+        var testObject = parsePersistence.new('MomentsForReals');
 
         parsePersistence.save(testObject, {foo: "bar promise",text: "orale"})
             .then(function(object) {
@@ -34,7 +34,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     // retrieve a list of 1000 items from server and the total number of items
     $scope.find = function() {
 
-        var query = parseQuery.new('trueHeading');
+        var query = parseQuery.new('MomentsForReals');
 //      var query = parseQuery.new('observations');
 
         query.limit(1000);
