@@ -15,7 +15,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
 
             var basemapUrl = "http://{s}.tiles.mapbox.com/v3/spatialdev.map-4o51gab2/{z}/{x}/{y}.png";
-            basemapLayer = L.tileLayer(basemapUrl);
+            basemapLayer = L.tileLayer(basemapUrl,{detectRetina: true});
             basemapLayer.addTo(map);
 
             map.setView([47.6095912,-122.3101043], 7);
@@ -47,10 +47,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 //        setId('cover');
 
         var activeMarker;
-        var redIcon = L.icon({
-            iconUrl: 'img/view@2x.png',
-            iconSize:     [30, 30], // size of the icon
-        });
+
 
         function setId(newId) {
             // If the ID hasn't actually changed, don't do anything
@@ -119,7 +116,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 //                fillOpacity: 1
                         icon: L.icon({
                             iconUrl: 'img/view@2x.png',
-                            iconSize: [30, 30],
+                            iconSize: [30, 30]
                         })
 
                     });
@@ -236,6 +233,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                     icon: L.icon({
                         iconUrl: 'img/black@2x.png',
                         iconSize: [30, 30],
+                        opacity: 0.5
                     })
 
                 });
