@@ -79,7 +79,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                     var truHeading = markerData[i].attributes.trueHeading
 
                     var momentSpot = new L.LatLng(markerData[i].attributes.latitude, markerData[i].attributes.longitude);
-                    map.setView(momentSpot,12);
+                    map.setView(momentSpot,13);
 
                     //create a marker based on baseline data attributes
 //                    var marker = null;
