@@ -15,7 +15,9 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
 
             var basemapUrl = "http://{s}.tiles.mapbox.com/v3/spatialdev.map-4o51gab2/{z}/{x}/{y}.png";
-            basemapLayer = L.tileLayer(basemapUrl,{});
+            basemapLayer = L.tileLayer(basemapUrl,{
+                detectRetina: true
+            });
             basemapLayer.addTo(map);
 
             map.setView([47.6095912,-122.3101043], 7);
@@ -136,6 +138,9 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             for (var i = 0; i < sections.length; i++) {
                 sections[i].className = sections[i].id === newId ? 'active' : '';
             }
+            if(newId == 'fake'){
+                $rootScope.find();
+            }
             // And then set the new id as the current one,
             // so that we know to do nothing at the beginning
             // of this function if it hasn't changed between calls
@@ -153,6 +158,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 var rect = sections[i].getBoundingClientRect();
                 if (rect.top >= 0 && rect.top <= narrativeHeight) {
                     newId = sections[i].id;
+
                 }
             };
             setId(newId);

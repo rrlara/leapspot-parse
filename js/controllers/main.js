@@ -15,12 +15,14 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
         total: 0
     }
 
+//    $scope.itemsParse = [];
+
     var moments = $scope.data.items;
 
     // adds a new object to server
     $scope.add = function() {
 
-        var testObject = parsePersistence.new('MomentsForReals');
+        var testObject = parsePersistence.new('trueHeading');
 
         parsePersistence.save(testObject, {foo: "bar promise",text: "orale"})
             .then(function(object) {
@@ -31,25 +33,41 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
             });
     }
 
-    // retrieve a list of 1000 items from server and the total number of items
-    $scope.find = function() {
+    var skip = 0;
 
-        var query = parseQuery.new('MomentsForReals');
+    // retrieve a list of 1000 items from server and the total number of items
+    $rootScope.find = function() {
+
+       var limit = 7;
+
+        var query = parseQuery.new('trueHeading');
 //      var query = parseQuery.new('observations');
 
-        query.limit(1000);
+        query.limit(limit);
         query.descending("createAt");
+        query.skip(skip);
 
         parseQuery.find(query)
             .then(function(results) {
                 $scope.data.items = results;
+//                if ($scope.data.items == 0){
+//                    $scope.data.items = results;
+//                }else{
+//                    ($scope.data.items).push(results);
+//                    $scope.data.total++;
+//                }
+//                ($scope.itemsParse).push(results);
+
 
                 console.log(results);
-
+                console.log($scope.itemsParse);
                 $rootScope.pointData = results;
 
                 $rootScope.points();
 
+                skip = skip + limit;
+
+//                console.log($scope.data.items);
 
                 // nested promise :)
                 return parseQuery.count(query);
