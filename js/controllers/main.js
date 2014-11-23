@@ -15,14 +15,14 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
         total: 0
     }
 
-//    $scope.itemsParse = [];
+    $rootScope.itemsParse = [];
 
     var moments = $scope.data.items;
 
     // adds a new object to server
     $scope.add = function() {
 
-        var testObject = parsePersistence.new('trueHeading');
+        var testObject = parsePersistence.new('MomentsForReals');
 
         parsePersistence.save(testObject, {foo: "bar promise",text: "orale"})
             .then(function(object) {
@@ -38,10 +38,9 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     // retrieve a list of 1000 items from server and the total number of items
     $rootScope.find = function() {
 
-       var limit = 7;
+       var limit = 1;
 
-        var query = parseQuery.new('trueHeading');
-//      var query = parseQuery.new('observations');
+        var query = parseQuery.new('MomentsForReals');
 
         query.limit(limit);
         query.descending("createAt");
@@ -49,19 +48,22 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
         parseQuery.find(query)
             .then(function(results) {
-                $scope.data.items = results;
+//                $scope.data.items = results;
 //                if ($scope.data.items == 0){
 //                    $scope.data.items = results;
 //                }else{
 //                    ($scope.data.items).push(results);
 //                    $scope.data.total++;
 //                }
-//                ($scope.itemsParse).push(results);
+                for (var i = 0; i < results.length; i++) {
+                    ($rootScope.itemsParse).push(results[i]);
+                }
+
 
 
                 console.log(results);
                 console.log($scope.itemsParse);
-                $rootScope.pointData = results;
+                $rootScope.pointData = $rootScope.itemsParse;
 
                 $rootScope.points();
 
