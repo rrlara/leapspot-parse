@@ -109,7 +109,8 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
         }
 
         // append to element or to tge body
-        (document.body).appendChild(div);
+//        (document.body).appendChild(div);
+        document.getElementById("map").appendChild(div);
 
         /**
          * returns an action that moves the percentaje bar to the specified one
