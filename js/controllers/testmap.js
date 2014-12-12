@@ -22,7 +22,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             });
             basemapLayer.addTo(map);
 
-            map.setView([47.6095912,-122.3101043], 0);
+//            map.setView([47.6095912,-122.3101043], 3);
 
             $scope.find();
 
@@ -153,7 +153,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
 
             }else{
-                map.setView([47.6095912,-122.3101043], 0);
+                map.setView([47.6095912,-122.3101043], 1);
             }
 
 

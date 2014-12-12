@@ -90,9 +90,9 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     var MiniProgressBar = function() {
 
         var defaultStyle =  {
-            position: 'fixed',
+            position: 'absolute',
             left: 0,
-            top: "197px",
+            bottom: "0px",
             height: '3px',
             display: 'inline-block',
             background: '#ff7373',
