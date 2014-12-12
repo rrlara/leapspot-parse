@@ -18,11 +18,11 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             var basemapUrl = "http://{s}.tiles.mapbox.com/v3/spatialdev.map-4o51gab2/{z}/{x}/{y}.png";
             basemapLayer = L.tileLayer(basemapUrl,{
-                detectRetina: true
+//                detectRetina: true
             });
             basemapLayer.addTo(map);
 
-            map.setView([47.6095912,-122.3101043], 7);
+            map.setView([47.6095912,-122.3101043], 0);
 
             $scope.find();
 
@@ -133,29 +133,31 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 } else {
 //                    layer.setIcon(blackIcon);
 
+
+
                 }
             }
 
             console.log(newId);
-
-
-            function incrementCount(){
-
-            }
 
             if(newId != "cover"){
 
                 count++;
 
                 var percent = (100/totalcount)*count;
-                console.log(percent);
+                console.log(count, percent);
 
-                if (percent < 100){
+                if (percent < 100.1){
                     $rootScope.pg.percent(percent);
                 }
 
 
+            }else{
+                map.setView([47.6095912,-122.3101043], 0);
             }
+
+
+
 
 
 //            console.log(markerData);
@@ -284,9 +286,9 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             }
 
             //add marker group as a layer to the map
-            map.addLayer(markers);
+//            map.addLayer(markers);
 
-            map.fitBounds(markers);
+//            map.fitBounds(markers);
 
             $rootScope.globalMarkers = markers;
 

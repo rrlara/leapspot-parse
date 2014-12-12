@@ -130,4 +130,8 @@ app.controller("MapCtrl", ['$scope', '$rootScope',
 
         };
 
+        $scope.zoomToFullExtent = function() {
+            map.fitBounds(markers);
+        }
+
 }]);
