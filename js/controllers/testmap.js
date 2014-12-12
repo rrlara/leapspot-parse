@@ -18,7 +18,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             var basemapUrl = "http://{s}.tiles.mapbox.com/v3/spatialdev.map-4o51gab2/{z}/{x}/{y}.png";
             basemapLayer = L.tileLayer(basemapUrl,{
-//                detectRetina: true
+                detectRetina: true
             });
             basemapLayer.addTo(map);
 
