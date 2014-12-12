@@ -8,6 +8,8 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
         var map;
 
+        var count= 0;
+
         function initMap(){
 
             map = L.map('map');
@@ -50,11 +52,16 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
         var activeMarker;
 
+        var percentageBar;
 
         function setId(newId) {
             // If the ID hasn't actually changed, don't do anything
 
             var markerData = $rootScope.pointData;
+
+            var totalcount = markerData.length;
+
+
 
 
 
@@ -77,7 +84,8 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                     var truHeading = markerData[i].attributes.trueHeading
 
                     var momentSpot = new L.LatLng(markerData[i].attributes.latitude, markerData[i].attributes.longitude);
-                    map.setView(momentSpot,13);
+                    map.setView(momentSpot,11);
+
 
                     //create a marker based on baseline data attributes
 //                    var marker = null;
@@ -128,7 +136,26 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 }
             }
 
-//            console.log(newId);
+            console.log(newId);
+
+
+            function incrementCount(){
+
+            }
+
+            if(newId != "cover"){
+
+                count++;
+
+                var percent = (100/totalcount)*count;
+                console.log(percent);
+
+                if (percent < 100){
+                    $rootScope.pg.percent(percent);
+                }
+
+
+            }
 
 
 //            console.log(markerData);
@@ -137,14 +164,17 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             // highlight the current section
             for (var i = 0; i < sections.length; i++) {
                 sections[i].className = sections[i].id === newId ? 'active' : '';
+
             }
             if(newId == 'fake'){
-                $rootScope.find();
+//                $rootScope.find();
             }
             // And then set the new id as the current one,
             // so that we know to do nothing at the beginning
             // of this function if it hasn't changed between calls
             currentId = newId;
+
+
         }
         // If you were to do this for real, you would want to use
         // something like underscore's _.debounce function to prevent this
@@ -162,6 +192,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 }
             };
             setId(newId);
+
         };
 
 

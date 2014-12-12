@@ -33,18 +33,18 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
             });
     }
 
-    var skip = 0;
+//    var skip = 0;
 
     // retrieve a list of 1000 items from server and the total number of items
     $rootScope.find = function() {
 
-       var limit = 1;
+//       var limit = 1;
 
         var query = parseQuery.new('MomentsForReals');
 
-        query.limit(limit);
+//        query.limit(limit);
         query.descending("createAt");
-        query.skip(skip);
+//        query.skip(skip);
 
         parseQuery.find(query)
             .then(function(results) {
@@ -67,7 +67,9 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
                 $rootScope.points();
 
-                skip = skip + limit;
+                MiniProgressBar();
+
+//                skip = skip + limit;
 
 //                console.log($scope.data.items);
 
@@ -82,6 +84,45 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
 
     };
+
+
+    ///////MINI-POGRESS BAR
+    var MiniProgressBar = function() {
+
+        var defaultStyle =  {
+            position: 'fixed',
+            left: 0,
+            top: "197px",
+            height: '3px',
+            display: 'inline-block',
+            background: '#ff7373',
+            'z-index': 2
+        };
+
+        $rootScope.pg = {};
+
+        // create an element and apply default style
+        var div = document.createElement('div');
+        div.setAttribute('class', 'oddysey-miniprogressbar');
+        for (var s in defaultStyle) {
+            div.style[s] = defaultStyle[s];
+        }
+
+        // append to element or to tge body
+        (document.body).appendChild(div);
+
+        /**
+         * returns an action that moves the percentaje bar to the specified one
+         */
+        $rootScope.pg.percent = function(p) {
+//            return Action(function() {
+//                div.style.width = p + "%";
+//            });
+            div.style.width = p + "%";
+        };
+
+//        return pg;
+    }
 
 
 });
