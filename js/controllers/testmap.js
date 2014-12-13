@@ -34,6 +34,8 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
         }
 
 
+
+
         $rootScope.initiateMap = initMap();
 
         // Ahead of time, select the elements we'll need -
@@ -56,7 +58,6 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
         var activeMarker;
 
-        var percentageBar;
 
         function setId(newId) {
             // If the ID hasn't actually changed, don't do anything
@@ -78,10 +79,20 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 map.removeLayer(activeMarker);
             }
 
+            var momentObj = {};
+
 
             for (var i = 0; i < markerData.length; i++) {
 
+                console.log(markerData[i].id);
 
+                var momentID = markerData[i].id;
+
+                count++;
+
+                var percent = (100/markerData.length)*count;
+
+                momentObj[momentID] = percent;
 
                 if (markerData[i].id === newId) {
 
@@ -144,16 +155,22 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             console.log(newId);
 
+            console.log(momentObj);
+
             if(newId != "cover"){
 
-                count++;
+//                count++;
+//
+//                var percent = (100/totalcount)*count;
+//                console.log(count, percent);
+//
+//                if (percent < 100.1){
+//                    $rootScope.pg.percent(percent);
+//                }
 
-                var percent = (100/totalcount)*count;
-                console.log(count, percent);
 
-                if (percent < 100.1){
-                    $rootScope.pg.percent(percent);
-                }
+
+                $rootScope.pg.percent($scope.momentObj[newId]);
 
 
             }else{

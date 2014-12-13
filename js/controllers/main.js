@@ -65,9 +65,13 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
                 console.log($scope.itemsParse);
                 $rootScope.pointData = $rootScope.itemsParse;
 
+                getPercentage();
+
                 $rootScope.points();
 
                 MiniProgressBar();
+
+
 
 //                skip = skip + limit;
 
@@ -84,6 +88,32 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
 
     };
+
+    var count= 0;
+    $scope.momentObj = {};
+
+    var getPercentage = function(){
+
+
+
+
+
+        for (var i = 0; i < $rootScope.pointData.length; i++) {
+
+            console.log($rootScope.pointData[i].id);
+
+            var momentID = $rootScope.pointData[i].id;
+
+            count++;
+
+            var percent = (100 / $rootScope.pointData.length) * count;
+
+            $scope.momentObj[momentID] = percent;
+
+        }
+
+        console.log("obj: ", $scope.momentObj);
+    }
 
 
     ///////MINI-POGRESS BAR
