@@ -89,7 +89,7 @@
         </section>
         <section id='{{item.id}}' ng-repeat="item in itemsParse">
             <h3>{{item.attributes.comment}}</h3>
-            <p>{{item.attributes.latitude}} /{{item.attributes.longitude}} ({{item.attributes.trueHeading}}) <br> {{item.attributes.altitude}} meters</p>
+            <p>location: {{item.attributes.latitude | number:2}}, {{item.attributes.longitude | number:2}} ({{item.attributes.trueHeading | number:2}}) <br> {{item.attributes.altitude | number:0}} meters</p>
             <img src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="100%">
         </section>
         <!--<section id='fake'>-->

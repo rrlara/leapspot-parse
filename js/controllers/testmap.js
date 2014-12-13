@@ -188,7 +188,8 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             // We iterate backwards here so that we find the topmost one.
             for (var i = sections.length - 1; i >= 0; i--) {
                 var rect = sections[i].getBoundingClientRect();
-                if (rect.top >= 0 && rect.top <= narrativeHeight) {
+//                console.log(rect);
+                if (rect.top >= 300 && rect.top <= narrativeHeight) {
                     newId = sections[i].id;
 
                 }
