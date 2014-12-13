@@ -95,7 +95,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
             bottom: "0px",
             height: '3px',
             display: 'inline-block',
-            background: '#ff7373',
+            background: '#cd011e',
             'z-index': 2
         };
 
