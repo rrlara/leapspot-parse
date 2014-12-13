@@ -24,6 +24,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
             map.touchZoom.disable();
 //            map.doubleClickZoom.disable();
             map.scrollWheelZoom.disable();
+            map.dragging.disable();
 
 //            map.setView([47.6095912,-122.3101043], 3);
 
