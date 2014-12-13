@@ -84,7 +84,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             for (var i = 0; i < markerData.length; i++) {
 
-                console.log(markerData[i].id);
+//                console.log(markerData[i].id);
 
                 var momentID = markerData[i].id;
 
@@ -155,7 +155,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             console.log(newId);
 
-            console.log(momentObj);
+
 
             if(newId != "cover"){
 
@@ -171,6 +171,8 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
 
                 $rootScope.pg.percent($scope.momentObj[newId]);
+
+
 
 
             }else{
