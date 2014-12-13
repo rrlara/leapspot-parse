@@ -21,6 +21,9 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 detectRetina: true
             });
             basemapLayer.addTo(map);
+            map.touchZoom.disable();
+//            map.doubleClickZoom.disable();
+            map.scrollWheelZoom.disable();
 
 //            map.setView([47.6095912,-122.3101043], 3);
 
