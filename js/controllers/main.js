@@ -22,7 +22,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
     // adds a new object to server
     $scope.add = function() {
 
-        var testObject = parsePersistence.new('MomentsForReals');
+        var testObject = parsePersistence.new('HawaiiTrip');
 
         parsePersistence.save(testObject, {foo: "bar promise",text: "orale"})
             .then(function(object) {
@@ -40,7 +40,7 @@ app.controller('MainCtrl', function($scope, $timeout, parsePersistence, parseQue
 
 //       var limit = 1;
 
-        var query = parseQuery.new('MomentsForReals');
+        var query = parseQuery.new('HawaiiTrip');
 
 //        query.limit(limit);
         query.descending("createAt");
