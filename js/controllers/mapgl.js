@@ -29,6 +29,12 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 //hash: true
             });
 
+            // disable map rotation using right click + drag
+            map.dragRotate.disable();
+
+            // disable map rotation using touch rotation gesture
+            map.touchZoomRotate.disableRotation();
+
             var geojson = new mapboxgl.GeoJSONSource({
                 data: initialGeoJSON
             });
