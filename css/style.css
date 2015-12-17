@@ -95,4 +95,52 @@ html, body {
     max-width: 600px;
 }
 
+.leaflet-div-icon {
+    background: #cd011e;
+    /*border: 1px solid #999;*/
+    border-color: rgba(0,0,0,.1);
+}
+
+.pulse {
+    margin: -43px -17px;
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 44px 0px 0 0;
+    background: #cd011e;
+    cursor: pointer;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+    animation: pulse 2s infinite;
+    opacity: .3;
+}
+.pulse:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    }
+    50% {
+        -webkit-box-shadow: 0 0 0 50px rgba(204,169,44, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    }
+    50% {
+        -moz-box-shadow: 0 0 0 50px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 50px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}
 

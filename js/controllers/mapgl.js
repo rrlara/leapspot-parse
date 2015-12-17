@@ -27,7 +27,7 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
             map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v8',
+                style: 'mapbox://styles/mapbox/emerald-v8',
                 center: [-122.202,47.610],
                 zoom: 8
                 //hash: true
@@ -63,12 +63,17 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 map.addLayer({
                     "id": "symbols",
                     "interactive": true,
-                    "type": "symbol",
+                    "type": "circle",
                     "source": "symbols",
-                    "layout": {
-                        "icon-image": "marker-15"
-                    },
-                    "paint": {}
+                    //"layout": {
+                    //    "icon-image": "marker-15"
+                    //},
+                    "paint": {
+                        "circle-radius": 10,
+                        "circle-color": "#ff0000",
+                        "circle-translate": [10,50],
+                        "circle-translate-anchor": "map"
+                    }
                 });
 
             });
