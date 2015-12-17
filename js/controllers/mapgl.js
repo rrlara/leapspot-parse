@@ -10,6 +10,10 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
         var count= 0;
 
+        var connectionSpeed;
+
+        $rootScope.effectsString = "";
+
         function initMap(){
 
             mapboxgl.accessToken = 'pk.eyJ1IjoicnJsYXJhIiwiYSI6IjNjSlJmUkkifQ.PlJc5PGK-7-EDMmsfqYKfg';
@@ -68,6 +72,21 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
                 });
 
             });
+            //https://github.com/ashanbh/detectClientSpeed
+            detectSpeed.startSpeedCheck (
+                'http://files.parsetfss.com/b07a2e72-bc69-4cfa-b9a8-cff54fe5ac5e/tfss-aad5380a-8792-4487-a3ab-fb442b330cb4-thmbnail.jpg',
+                function callback(timings){
+                    console.log(timings);
+                    $rootScope.connectSpeed = timings.throughPutSpeedClass.name;
+
+                    connectionSpeed = timings.throughPutSpeedClass.throughput;
+                    if(connectionSpeed >= 1000){
+                        $rootScope.effectsString = "flyTo animation";
+                    }else{
+                        $rootScope.effectsString = "jumpTo animation";
+                    }
+                }
+            );
 
 
         }
@@ -127,10 +146,21 @@ app.controller("TestMapCtrl", ['$scope', '$rootScope',
 
                     var center = [parseFloat(markerData[i].attributes.longitude), parseFloat(markerData[i].attributes.latitude)];
 
-                    map.jumpTo({
-                        zoom: 12,
-                        center: center
-                    });
+
+                    if(connectionSpeed){
+                        if(connectionSpeed >= 1000){
+                            map.flyTo({
+                                zoom: 11,
+                                center: center
+                            });
+                        }else{
+                            map.jumpTo({
+                                zoom: 11,
+                                center: center
+                            });
+                        }
+                    }
+
 
                     var orale = new mapboxgl.GeoJSONSource({
                         data: {

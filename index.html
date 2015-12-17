@@ -27,6 +27,8 @@
     <script src="node_modules/angularparse/angularparse.js"></script>
     <!--<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>-->
 
+    <script src="js/vendors/detectSpeed.js"></script>
+
     <script src="app.js"></script>
     <script src="js/controllers/main.js"></script>
     <script src="js/controllers/scollmap.js"></script>
@@ -95,6 +97,7 @@
         <section id='cover' class='cover active'>
             <h2>The Adventure of Gizmo - the Catahoula Leapord Dog</h2>
             <p>by Rene Rodriguez</p>
+            <p>Connection: {{connectSpeed}} / Effects: {{effectsString}}</p>
 
             <small class='scroll quiet'>Scroll &#x25BE;</small>
         </section>
@@ -108,22 +111,19 @@
             <img src="{{item.attributes.thumbnail._url}}" alt="Smiley face" width="100%">
 
         </section>
-        <!--<section id='fake'>-->
-            <!--<h3> </h3>-->
-            <!--<p> </p>-->
-            <!--<small class='colophon'>-->
-
-            <!--</small>-->
-        <!--</section>-->
-        <!--<section id='fake'>-->
-        <!--&lt;!&ndash;<button ng-click="find()" style="padding: 20px; z-index: 100;">Points</button>&ndash;&gt;-->
-        <!--</section>-->
     </div>
 </article>
 
     </div>
 
 <script>
+//    detectSpeed.startSpeedCheck (
+//            'http://files.parsetfss.com/b07a2e72-bc69-4cfa-b9a8-cff54fe5ac5e/tfss-aad5380a-8792-4487-a3ab-fb442b330cb4-thmbnail.jpg',
+//            function callback(timings){
+//                console.log(timings);
+//            }
+//    );
+
 </script>
 </body>
 </html>
