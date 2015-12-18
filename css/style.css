@@ -98,7 +98,10 @@ html, body {
 .leaflet-div-icon {
     background: #cd011e;
     /*border: 1px solid #999;*/
+    width: 6px;
+    height: 6px;
     border-color: rgba(0,0,0,.1);
+    border-radius: 50%;
 }
 
 .pulse {
